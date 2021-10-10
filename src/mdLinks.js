@@ -11,13 +11,8 @@
 ------------------------------------------------------------------------------------- */
 
 const fs = require('fs')
-// const process = require('process')
 const mdFuncs = require('./mdlFunctions')
-/*
-// recibe argumento por linea de comando
-const filePath = process.argv[2]
-const option = process.argv[3]
-*/
+
 const arrayLinksStats = (path) => {
   return new Promise((resolve, reject) => {
     if (fs.existsSync(path)) {
@@ -32,7 +27,7 @@ const arrayLinksStats = (path) => {
         const urlEtractor = mdFuncs.filesUrls(absolutePath)
         resolve(urlEtractor)
       }
-    } else if (path === undefined) {
+    } else if (path === undefined || path === '') {
       const error = 'No se ingreso ninguna ruta'
       reject(error)
     } else {
@@ -44,7 +39,7 @@ const arrayLinksStats = (path) => {
 
 const mdLinks = (path, option) => {
   return new Promise((resolve, reject) => {
-    if (option === undefined) {
+    if (option === undefined || option === 'show') {
       arrayLinksStats(path)
         .then(res => resolve(res))
         .catch(error => reject(error))
@@ -94,6 +89,18 @@ const mdLinks = (path, option) => {
             .catch(err => resolve(err))
         })
         .catch(error => reject(error))
+    } else if (option === 'help') {
+      console.log(`
+      -----------------------------------------HELP-----------------------------------------
+      | show           | * Muestra lista de objetos de cada link: href, title y file       |
+      | validate       | * Muestra lista de objetos de cada link href, title,              |
+      |                |   file, status y OK/FAIL segun el caso                            |
+      | stats          | * Muestra un objeto con las estadísticas de los links en totales  |
+      |                |   y unicos                                                        |
+      | validate-stats | * Realiza la validación y muestra un objeto con las estadística   |
+      |                |   de los links                                                    |
+      --------------------------------------------------------------------------------------
+            `)
     } else {
       const error = 'opcion incorrecta'
       reject(error)
