@@ -1,6 +1,6 @@
 {
   "name": "md-links",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "aplicacion que permite leer y analizar archivos markdown en cuanto a la verificacion de los links que contenga y reportar algunas estadisticas",
   "main": "index.js",
   "bin": {
