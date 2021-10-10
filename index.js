@@ -51,7 +51,7 @@ const mdLinks = (path, option) => {
         .then(res => resolve(res))
         .catch(error => reject(error))
     } else if (option === 'validate') {
-      arrayLinksStats(filePath)
+      arrayLinksStats(path)
         .then(res => {
           const linksValidator = mdFuncs.filesUrlsVerify(res)
           linksValidator
@@ -60,7 +60,7 @@ const mdLinks = (path, option) => {
         })
         .catch(error => reject(error))
     } else if (option === 'stats') {
-      arrayLinksStats(filePath)
+      arrayLinksStats(path)
         .then(res => {
           const linksValidator = mdFuncs.filesUrlsVerify(res)
           linksValidator
@@ -78,7 +78,7 @@ const mdLinks = (path, option) => {
         })
         .catch(error => reject(error))
     } else if (option === 'validate-stats') {
-      arrayLinksStats(filePath)
+      arrayLinksStats(path)
         .then(res => {
           const linksValidator = mdFuncs.filesUrlsVerify(res)
           linksValidator
