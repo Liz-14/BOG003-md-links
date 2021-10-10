@@ -1,4 +1,40 @@
 {
   "name": "md-links",
-  "version": "0.1.0"
+  "version": "1.0.0",
+  "description": "aplicacion que permite leer y analizar archivos markdown en cuanto a la verificacion de los links que contenga y reportar algunas estadisticas",
+  "main": "index.js",
+  "bin": {
+    "mdLinks": "./index.js"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liz-14/BOG003-md-links.git"
+  },
+  "keywords": [
+    "markdown-reading",
+    "markdown-link-analyses"
+  ],
+  "author": "Lizeth Del Rio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liz-14/BOG003-md-links/issues"
+  },
+  "homepage": "https://github.com/Liz-14/BOG003-md-links#readme",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.5"
+  }
 }
