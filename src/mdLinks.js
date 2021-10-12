@@ -45,48 +45,36 @@ const mdLinks = (path, option) => {
         .catch(error => reject(error))
     } else if (option === 'validate') {
       arrayLinksStats(path)
-        .then(res => {
-          const linksValidator = mdFuncs.filesUrlsVerify(res)
-          linksValidator
-            .then(resol => resolve(resol))
-            .catch(err => resolve(err))
+        .then(resolve => {
+          return mdFuncs.filesUrlsVerify(resolve)
         })
+        .then(linkStats => resolve(linkStats))
         .catch(error => reject(error))
     } else if (option === 'stats') {
       arrayLinksStats(path)
         .then(res => {
-          const linksValidator = mdFuncs.filesUrlsVerify(res)
-          linksValidator
-            .then(resol => {
-              const validLinks = mdFuncs.statistics(resol).validLinks
-              const totalLinks = resol.length
-              const statisticsLinks = {
-                Total: totalLinks,
-                Valids: validLinks
-              }
-              resolve(statisticsLinks)
-            })
-
-            .catch(err => resolve(err))
+          return mdFuncs.filesUrlsVerify(res)
+        })
+        .then(linkStats => {
+          const statisticsLinks = {
+            Total: mdFuncs.statistics(linkStats).totalLinks,
+            Unique: mdFuncs.statistics(linkStats).unique
+          }
+          resolve(statisticsLinks)
         })
         .catch(error => reject(error))
     } else if (option === 'validate-stats') {
       arrayLinksStats(path)
         .then(res => {
-          const linksValidator = mdFuncs.filesUrlsVerify(res)
-          linksValidator
-            .then(resol => {
-              const validLinks = mdFuncs.statistics(resol).validLinks
-              const brokenLinks = mdFuncs.statistics(resol).brokenLinks
-              const totalLinks = resol.length
-              const statisticsLinks = {
-                Total: totalLinks,
-                Valids: validLinks,
-                Broken: brokenLinks
-              }
-              resolve(statisticsLinks)
-            })
-            .catch(err => resolve(err))
+          return mdFuncs.filesUrlsVerify(res)
+        })
+        .then(linkStats => {
+          const statisticsLinks = {
+            Total: mdFuncs.statistics(linkStats).totalLinks,
+            Unique: mdFuncs.statistics(linkStats).unique,
+            Broken: mdFuncs.statistics(linkStats).brokenLinks
+          }
+          resolve(statisticsLinks)
         })
         .catch(error => reject(error))
     } else if (option === 'help') {

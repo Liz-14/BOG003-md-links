@@ -8,7 +8,7 @@ const Functions = {
   absolutFile: (validPath) => path.isAbsolute(validPath) ? validPath : path.resolve(validPath),
 
   // FUNCION RECURSIVA PARA ENCONTRAR ARCHIVOS .md DE UN DIRECTORIO
-  findeFile: function directory (initialPath) {
+  findeFile: function (initialPath) {
     // Array de los archivos encontrados en la ruta
     const listFiles = fs.readdirSync(initialPath)
     let mdFiles = []
@@ -19,7 +19,7 @@ const Functions = {
       const stat = fs.statSync(filePath)
       // Validacion si la ruta es un directorio para recursion
       if (stat.isDirectory()) {
-        mdFiles = mdFiles.concat(directory(filePath)) // Recusrsion
+        mdFiles = mdFiles.concat(this.findeFile(filePath)) // Recusrsion
         // Obtencion en un array de rutas con archivos .md
       } else if (path.extname(filePath) === '.md') {
         mdFiles.push(filePath)
@@ -106,9 +106,17 @@ const Functions = {
 
   // METODO QUE RETORNA LAS ESTADISTICAS DE LOS LINKS
   statistics: (dataLinks) => {
-    const validLinks = dataLinks.filter(el => el.ok === 'OK').length
+    const arrayLinks = []
+    dataLinks.forEach(el => arrayLinks.push(el.href))
+
+    const totalLinks = arrayLinks.length
+
+    const uniqueLinks = new Set(arrayLinks)
+    const unique = [...uniqueLinks].length
+
     const brokenLinks = dataLinks.filter(el => el.ok === 'FAIL').length
-    return { validLinks, brokenLinks }
+
+    return { totalLinks, brokenLinks, unique }
   }
 }
 

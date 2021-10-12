@@ -14,7 +14,7 @@ inquirer.prompt([{
 }])
 
   .then(answer => {
-    mdLinks.mdLinks(answer.path, answer.options)
-      .then(res => console.log(res))
-      .catch(error => console.error(error))
+    return mdLinks.mdLinks(answer.path, answer.options)
   })
+  .then(answer => console.log(answer))
+  .catch(error => console.error(error))
