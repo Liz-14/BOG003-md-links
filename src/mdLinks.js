@@ -97,8 +97,11 @@ const mdLinks = (path, option) => {
 }
 
 exports.mdLinks = mdLinks
+// exports.arrayLinksStats = arrayLinksStats
 
 // C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-data-lovers/README.md
 // C:/Users/User/OneDrive/Escritorio/Laboratoria/Mds
+
+// C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-md-links/.links/ñami/README6.md
 
 // https://regex101.com/
