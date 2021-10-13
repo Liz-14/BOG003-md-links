@@ -1,25 +1,120 @@
 const mdLinks = require('../src/mdLinks')
-const linkStats = require('./mdlFunctions.spec.js')
-const linkResult = require('./mdlFunctions.spec.js')
-const linkResult2 = require('./mdlFunctions.spec.js')
+
+const linkResult = [
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\jojo\\README4.md'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README.md'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-social-network/src/#/',
+    text: 'Proyecto Final',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README1.md'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-social-network/src/#/',
+    text: 'Proyecto Final',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README1.md'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README2.md'
+  },
+  {
+    href: 'https://curriculum.laboratoria.la/es/topics/javascript/04-arrays',
+    text: 'Arreglos',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\ñami\\README6.md'
+  },
+  {
+    href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Arraysh/',
+    text: 'Toy Malito :c',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\ñami\\README6.md'
+  }
+]
+
+const linkStats = [
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\jojo\\README4.md',
+    status: 200,
+    ok: 'OK'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README.md',
+    status: 200,
+    ok: 'OK'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-social-network/src/#/',
+    text: 'Proyecto Final',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README1.md',
+    status: 200,
+    ok: 'OK'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-social-network/src/#/',
+    text: 'Proyecto Final',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README1.md',
+    status: 200,
+    ok: 'OK'
+  },
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\README2.md',
+    status: 200,
+    ok: 'OK'
+  },
+  {
+    href: 'https://curriculum.laboratoria.la/es/topics/javascript/04-arrays',
+    text: 'Arreglos',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\ñami\\README6.md',
+    status: 200,
+    ok: 'OK'
+  },
+  {
+    href: 'https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Arraysh',
+    text: 'Toy Malito :c',
+    file: 'C:\\Users\\User\\OneDrive\\Escritorio\\Laboratoria\\BOG003-md-links\\.links\\ñami\\README6.md',
+    status: 404,
+    ok: 'FAIL'
+  }
+]
+
+const linkResult2 = [
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-md-links/.links/README.md'
+  }
+]
 
 describe('Links analizados', () => {
   it('Retorna un array de objetos con los links validados para directorio', () => {
     return mdLinks.mdLinks('./.links', 'show').then(data => {
-      expect(data).toEqual(linkResult.linkResult)
+      expect(data).toEqual(linkResult)
     })
   })
 
   const absolutePath2 = 'C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-md-links/.links/README.md'
   it('Retorna un array de objetos con los links validados para un archivo', () => {
     return mdLinks.mdLinks(absolutePath2, 'show').then(data => {
-      expect(data).toEqual(linkResult2.linkResult2)
+      expect(data).toEqual(linkResult2)
     })
   })
 
   it('Retorna un array de objetos con los links validados y algunas propiedades', () => {
     return mdLinks.mdLinks('./.links', 'validate').then(data => {
-      expect(data).toEqual(linkStats.linkStats)
+      expect(data).toEqual(linkStats)
     })
   })
 
