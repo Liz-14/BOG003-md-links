@@ -99,6 +99,14 @@ const linkStats = [
   }
 ]
 
+const linkResult2 = [
+  {
+    href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
+    text: 'PokeWeb Link',
+    file: 'C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-md-links/.links/README.md'
+  }
+]
+
 describe('path absoluto', () => {
   it('Deberia retornar ruta absoluta', () => {
     expect(mdlFuncs.absolutFile(absolutePath)).toBe(absolutePath)
@@ -120,13 +128,6 @@ describe('Extrae los links de los archivos .md', () => {
     expect(mdlFuncs.filesUrls(arrayResult)).toEqual(linkResult)
   })
 
-  const linkResult2 = [
-    {
-      href: 'https://liz-14.github.io/BOG003-data-lovers/src/',
-      text: 'PokeWeb Link',
-      file: 'C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-md-links/.links/README.md'
-    }
-  ]
   it('Deberia retornar un array de objetos de los links de un solo archivo .md', () => {
     expect(mdlFuncs.filesUrls('C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-md-links/.links/README.md'))
       .toEqual(linkResult2)
@@ -157,3 +158,4 @@ describe('Estadisticas de los links', () => {
 
 exports.linkResult = linkResult
 exports.linkStats = linkStats
+exports.linkResult2 = linkResult2
