@@ -149,4 +149,18 @@ describe('Links analizados', () => {
       expect(error).toBe('No se ingreso ninguna ruta')
     })
   })
+
+  const absolutePath3 = 'C:/Users/User/OneDrive/Escritorio/Laboratoria/Mds/NoHay'
+  it('Retorna mensaje de error para directorio sin archivos .md', () => {
+    return mdLinks.mdLinks(absolutePath3, 'stats').catch(error => {
+      expect(error).toBe('No hay ningun archivo .md')
+    })
+  })
+
+  const absolutePath4 = 'C:/Users/User/OneDrive/Escritorio/Laboratoria/Mds/README7.md'
+  it('Retorna mensaje de error si no hay coincidencia con links', () => {
+    return mdLinks.mdLinks(absolutePath4, 'stats').catch(error => {
+      expect(error).toBe('No se encontro ningun link')
+    })
+  })
 })

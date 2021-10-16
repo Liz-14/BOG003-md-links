@@ -21,11 +21,26 @@ const arrayLinksStats = (path) => {
 
       if (stats.isDirectory()) {
         const arrayFiles = mdFuncs.findeFile(absolutePath)
-        const urlEtractor = mdFuncs.filesUrls(arrayFiles)
-        resolve(urlEtractor)
+        if (arrayFiles.length !== 0) {
+          const urlEtractor = mdFuncs.filesUrls(arrayFiles)
+          if (urlEtractor.length !== 0) {
+            resolve(urlEtractor)
+          } else {
+            const error = 'No se encontro ningun link'
+            reject(error)
+          }
+        } else {
+          const error = 'No hay ningun archivo .md'
+          reject(error)
+        }
       } else {
         const urlEtractor = mdFuncs.filesUrls(absolutePath)
-        resolve(urlEtractor)
+        if (urlEtractor.length !== 0) {
+          resolve(urlEtractor)
+        } else {
+          const error = 'No se encontro ningun link'
+          reject(error)
+        }
       }
     } else if (path === undefined || path === '') {
       const error = 'No se ingreso ninguna ruta'
@@ -97,8 +112,3 @@ const mdLinks = (path, option) => {
 }
 
 exports.mdLinks = mdLinks
-
-// C:/Users/User/OneDrive/Escritorio/Laboratoria/BOG003-data-lovers/README.md
-// C:/Users/User/OneDrive/Escritorio/Laboratoria/Mds
-
-// https://regex101.com/
