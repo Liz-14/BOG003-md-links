@@ -44,7 +44,7 @@ estadísticas de los mismos, tales como: total de links encontrados, únicos y r
 
 ### Descripción
 El proyecto consta de dos partes:
-1. **API**: Se divide en dos partes: 
+1. **API**: Se divide en dos partes:
     + **Síncrona**: Haciendo uso de módulos de Node.js como: file system, path, junto con sus métodos específicos para poder trabajar con archivos del sistema y sus correspondientes rutas. En esta parte se realizaron métodos que permiten resolver las rutas, encontrar los archivos .md de un directorio por medio de la recursividad, extraer los links de dichos archivos y retornar sus estadísticas.
     + **Asíncrona**: Se hizo uso del módulo Fetch para poder hacer las peticiones HTTP correspondientes y verificar así el estado de los links. Luego, también se hizo uso de promesas para el manejo de errores y la creación de la función mdLinks que hace el llamado de los métodos anteriores.
 
@@ -52,7 +52,7 @@ El proyecto consta de dos partes:
 
 ## 4. Instalación
 
-`package.json`
+`npm i md-links-bylizdelrio`
 
 
 ## 5. Ejecución
@@ -78,5 +78,3 @@ Abrir una terminal y escribir: `mdLinks`
 
 ## 6. Test
 ![test](https://i.imgur.com/0AAApwV.png)
-
-
