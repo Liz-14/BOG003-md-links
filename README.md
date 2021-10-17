@@ -6,8 +6,8 @@
 * [2. Resumen de la librería](#2-resumen-de-la-librería)
 * [3. Documentación](#3-documentación)
 * [4. Instalación](#4-instalación)
-* [5. Ejecución](#4-ejecución)
-* [6. Test](#4-test)
+* [5. Ejecución](#5-ejecución)
+* [6. Test](#6-test)
 ***
 
 ## 1. Preámbulo
