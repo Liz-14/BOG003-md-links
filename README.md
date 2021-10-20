@@ -34,7 +34,7 @@ de uno o varios archivos Markdown (.md) a la vez, además de analizarlos y
 mostrarlos por consola, junto con características como: el texto que los
 acompaña, la ruta donde se encuentran, si el enlace esta roto y su código de
 error. Igualmente, permite navegar por medio de un menú y así ver las
-estadísticas de los mismos, tales como: total de links encontrados, únicos y rotos.prácticas.
+estadísticas de los mismos, tales como: total de links encontrados, únicos y rotos.
 
 ## 3. Documentación
 
